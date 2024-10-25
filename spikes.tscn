@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca35x4b1txf8p"]
+
+[ext_resource type="Script" path="res://spikes.gd" id="1_bulc4"]
+[ext_resource type="Texture2D" uid="uid://i2jxcfpr38a6" path="res://spike1.png" id="1_qbu16"]
+[ext_resource type="AudioStream" uid="uid://cy5unrq1nnjb6" path="res://brackeys_platformer_assets/sounds/hurt.wav" id="3_aercq"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_bulc4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.125, 0)
+scale = Vector2(0.498588, 0.5)
+texture = ExtResource("1_qbu16")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(144.076, 3)
+scale = Vector2(0.480196, 0.489313)
+polygon = PackedVector2Array(-353, 45, -295.676, -66.1251, -238, 45)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_aercq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

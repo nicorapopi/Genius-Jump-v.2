@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4e4tsx3k5gwl"]
+
+[ext_resource type="Texture2D" uid="uid://y5hck371xpw7" path="res://End (Idle).png" id="1_cjnxb"]
+[ext_resource type="Script" path="res://scenes/finish.gd" id="1_lwfun"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxcug"]
+size = Vector2(91, 111)
+
+[sub_resource type="LabelSettings" id="LabelSettings_angnr"]
+font_size = 30
+font_color = Color(1, 0.545098, 0, 1)
+
+[node name="Finish" type="Area2D"]
+script = ExtResource("1_lwfun")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(288, 127)
+scale = Vector2(1.96875, 2.5)
+texture = ExtResource("1_cjnxb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(288.5, 152.5)
+shape = SubResource("RectangleShape2D_vxcug")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 133.0
+offset_top = 18.0
+offset_right = 445.0
+offset_bottom = 90.0
+text = "Collect all Cherry to Win"
+label_settings = SubResource("LabelSettings_angnr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

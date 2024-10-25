@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://rmvxnw3axb0v"]
+
+[ext_resource type="Texture2D" uid="uid://b245mgrhtealb" path="res://Green.png" id="1_2vo76"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hyy4l"]
+font_size = 90
+font_color = Color(1, 0.380392, 0.654902, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="End_Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 322.75)
+scale = Vector2(18, 10.1016)
+texture = ExtResource("1_2vo76")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -279.0
+offset_top = -82.0
+offset_right = 548.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Thank you ..."
+label_settings = SubResource("LabelSettings_hyy4l")

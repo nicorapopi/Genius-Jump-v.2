@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3dyjg53hogik"]
+
+[ext_resource type="Texture2D" uid="uid://bha02t40d6isr" path="res://Terrain (16x16).png" id="1_vtx2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0furb"]
+size = Vector2(161, 10)
+
+[sub_resource type="Animation" id="Animation_pvytv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-406, -278)]
+}
+
+[sub_resource type="Animation" id="Animation_u7or1"]
+resource_name = "move_loop"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-405, -277), Vector2(33, -277), Vector2(-405, -277)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_15a7s"]
+_data = {
+"RESET": SubResource("Animation_pvytv"),
+"move_loop": SubResource("Animation_u7or1")
+}
+
+[node name="MovingPlatform" type="Node2D"]
+
+[node name="Platform" type="AnimatableBody2D" parent="."]
+position = Vector2(-406, -278)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+texture_filter = 1
+position = Vector2(485.17, 273.5)
+scale = Vector2(3.32623, 1.82386)
+texture = ExtResource("1_vtx2q")
+region_enabled = true
+region_rect = Rect2(272, 0, 48, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(485.5, 271)
+shape = SubResource("RectangleShape2D_0furb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
+libraries = {
+"": SubResource("AnimationLibrary_15a7s")
+}

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0htu8pnj01s5"]
+
+[ext_resource type="Texture2D" uid="uid://d2tntds5l08io" path="res://Jump (32x32).png" id="1_5x26n"]
+
+[sub_resource type="Curve2D" id="Curve2D_owdfk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 464, 299, 0, 0, 0, 0, 458, 224, 0, 0, 0, 0, 628, 211, 0, 0, 0, 0, 682, 334, 0, 0, 0, 0, 530, 359, 0, 0, 0, 0, 436, 336, 0, 0, 0, 0, 464, 315)
+}
+point_count = 7
+
+[node name="movingspike" type="Path2D"]
+curve = SubResource("Curve2D_owdfk")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(464, 299)
+rotation = -1.65063
+
+[node name="enemy" type="Area2D" parent="PathFollow2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/enemy"]
+texture = ExtResource("1_5x26n")

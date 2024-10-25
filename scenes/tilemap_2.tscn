@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvq8638l6hybc"]
+
+[ext_resource type="Texture2D" uid="uid://dohyx8rl0sf5u" path="res://tilemap.png" id="1_6wx4w"]
+
+[node name="tilemap2" type="Node2D"]
+
+[node name="Tilemap" type="Sprite2D" parent="."]
+position = Vector2(190, 85)
+texture = ExtResource("1_6wx4w")
